@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Proceso de Pago</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" href="../static/styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="div">
+            <div class="logo">
+                <a href="./index.html"><h1>Logo de la marca</h1></a>
+            </div>
+            <div class="usuario">
+                <a href="./perfilUsuario.html"><img th:src="@{/imgs/user.png}" src="../static/imgs/user.png" alt="Usuario"></a>
+                <h3><a href="./login.html" style="color:white; text-decoration:none;">Cerrar sesión</a></h3>
+            </div>
+        </div>
+    </header>
+
+    <div class="contenido-flex">
+        <aside>
+            <a href="./catalogo.html">Catalogo</a>
+            <a href="./carrito.html">Carrito</a>
+            <a href="./pedidos.html">Gestion de pedidos</a>
+            <a href="./login.html">Iniciar Sesión</a>
+        </aside>
+
+        <main class="main-pago">
+            <div class="btn-back-container">
+                <a href="./carrito.html" class="btn-back">&#8592;</a>
+            </div>
+
+            <div class="envio-info-container">
+                <div class="datos-envio">
+                    <p>Enviar a <strong>Ramón Zamudio</strong></p>
+                    <a href="#" class="enlace-direccion">ITSON, Av. Kino y Antonio Caso #205</a>
+                    <br><br>
+                    <a href="#" class="enlace-cambiar">Cambiar dirección de entrega</a>
+                </div>
+                <div class="fecha-llegada">
+                    <p>Llegaría el <strong>6 de Marzo</strong></p>
+                </div>
+            </div>
+
+            <div class="pago-grid">
+                
+                <div class="pago-productos-box">
+                    
+                    <div class="pago-item">
+                        <img th:src="@{/imgs/sonywh5.jpeg}" src="../static/imgs/sonywh5.jpeg" alt="Escáner" class="pago-img">
+                        <div class="pago-detalles">
+                            <p class="pago-titulo">Sony wh10000-xm5</p>
+                            <div class="pago-controles">
+                                <div class="item-cantidad">
+                                    <label>cantidad:</label>
+                                    <select>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </div>
+                        <div class="pago-precio">
+                            <p>$4,953.00</p>
+                        </div>
+                    </div>
+
+                    <hr class="divisor-pago">
+
+                    <div class="pago-item">
+                        <img th:src="@{/imgs/focos.webp}" src="../static/imgs/focos.webp" alt="Focos LED" class="pago-img">
+                        <div class="pago-detalles">
+                            <p class="pago-titulo">H4 H7 H11 9005 9006 H1 H3 Kit De Faros Auto Led 18000lm Luz Alta Baja Kit 80W 6500K Bombillas LED</p>
+                            <div class="pago-controles">
+                                <div class="item-cantidad">
+                                    <select>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn-eliminar">Eliminar</button>
+                        </div>
+                        <div class="pago-precio">
+                            <p>$392</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pago-sidebar">
+                    
+                    <div class="metodos-pago-box">
+                        <h3>Método de Pago</h3>
+                        <div class="logos-grid">
+                            <div class="logo-tarjeta"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa"></div>
+                            <div class="logo-tarjeta"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/200px-PayPal.svg.png" alt="PayPal"></div>
+                            <div class="logo-tarjeta"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="MasterCard"></div>
+                            <div class="logo-tarjeta" style="background-color: #003b87; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: sans-serif; border-radius: 4px;">Coppel</div>
+                        </div>
+                    </div>
+
+                    <div class="total-pago-box">
+                        <h3>Total</h3>
+                        <div class="total-input">$5,345</div>
+                        <a href="./pagoConfirmado.html">Confirmar Pago</a>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="logo-footer">
+            <img th:src="@{/imgs/svg/logoBlanco.svg}" src="../static/imgs/svg/logoBlanco.svg" alt="">
+            <p>Aplicaciones Web - Unidad 2</p>
+            <br>
+        </div>
+        <div class="contacto">
+            <h3>Contáctanos</h3>
+            <ul class="social-links">
+                <li><a href="https://www.whatsapp.com/"><img th:src="@{/imgs/whatsappLogo.svg}" src="../static/imgs/whatsappLogo.svg" alt="WhatsApp"></a></li>
+                <li><a href="https://www.instagram.com/"><img th:src="@{/imgs/instaLogo.svg}" src="../static/imgs/instaLogo.svg" alt="Instagram"></a></li>
+                <li><a href="https://www.facebook.com/"><img th:src="@{/imgs/facebookLogo.svg}" src="../static/imgs/facebookLogo.svg" alt="Facebook"></a></li>
+                <li><a href="https://mail.google.com/"><img th:src="@{/imgs/gmailLogo.svg}" src="../static/imgs/gmailLogo.svg" alt="Correo"></a></li>
+            </ul>
+        </div>
+        <div class="avisos">
+            <ul class="legal-links">
+                <li><a href="">Términos y condiciones</a></li>
+                <li><a href="">Aviso de privacidad</a></li>
+                <li><a href="">Políticas de cookies</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

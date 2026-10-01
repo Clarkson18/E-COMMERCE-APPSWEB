@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Crear Reseña</title>
+        <link rel="stylesheet" th:href="@{/styles/styles.css}" href="../static/styles/styles.css">
+    </head>
+    <body>
+         <header>
+            <div class = div>
+                <div class = "logo">
+                    <a href="./index.html"><h1>Logo de la marca</h1></a>
+                </div>
+                <div class = "usuario">
+                    <a href="./perfilUsuario.html"><img th:src="@{/imgs/user.png}" src="../static/imgs/user.png" alt=""></a>
+                <h3>Cerrar sesión</h3>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class = "top-contenedor">
+                <a href="./catalogo.html"><img th:src="@{/imgs/back.png}" src="../static/imgs/back.png" alt=""></a>
+            </div>
+            <div class="contenido-grid">
+                <section class="seccion-producto">
+                    <img th:src="@{/imgs/sonywh5.jpeg}" src="../static/imgs/sonywh5.jpeg" alt="Producto" class="img-producto">
+                    <div class="puntuacion-actual">
+                        ⭐⭐⭐⭐ 4 
+                    </div>
+                </section>
+                <section class="seccion-form">
+                    <h1>Audifonos Sony wh10000-xm5</h1>
+                    <form>
+                        <div class="campo-puntuacion">
+                            <label>Calificacion:</label>
+                            <select name="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="campo-comentario">
+                            <label>¡Comenta tu experiencia con este producto!</label>
+                            <textarea placeholder="Escribe aquí..." class = "reseniaArea"></textarea>
+                        </div>
+                        <div class="contenedor-botones-resena">
+                            <button type="button" class="btn-cancelar">Cancelar</button>
+                            <button type="submit" class="btn-publicar">Publicar</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="logo-footer">
+                <img th:src="@{/imgs/svg/logoBlanco.svg}" src="../static/imgs/svg/logoBlanco.svg" alt="">
+                <p>Aplicaciones Web - Unidad 2</p>
+                <br>
+            </div>
+            <div class="contacto">
+                <h3>Contáctanos</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.whatsapp.com/"><img th:src="@{/imgs/whatsappLogo.svg}" src="../static/imgs/whatsappLogo.svg" alt="WhatsApp"></a></li>
+                    <li><a href="https://www.instagram.com/"><img th:src="@{/imgs/instaLogo.svg}" src="../static/imgs/instaLogo.svg" alt="Instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img th:src="@{/imgs/facebookLogo.svg}" src="../static/imgs/facebookLogo.svg" alt="Facebook"></a></li>
+                    <li><a href="https://mail.google.com/"><img th:src="@{/imgs/gmailLogo.svg}" src="../static/imgs/gmailLogo.svg" alt="Correo"></a></li>
+                </ul>
+            </div>
+            <div class="avisos">
+                <ul class="legal-links">
+                    <li><a href="">Términos y condiciones</a></li>
+                    <li><a href="">Aviso de privacidad</a></li>
+                    <li><a href="">Políticas de cookies</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Build & compiled files
+**/target/
+*.class
+
+# Logs & temp
+*.log
+tmp/

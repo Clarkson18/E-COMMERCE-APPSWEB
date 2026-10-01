@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>detalle Producto</title>
+        <link rel="stylesheet" th:href="@{/styles/styles.css}" href="../static/styles/styles.css">
+    </head>
+    <body>
+        <header>
+            <div class = div>
+                <div class = "logo">
+                    <a href="./index.html"><h1>Logo de la marca</h1></a>
+                </div>
+                <div class = "usuario">
+                    <a href="./perfilUsuario.html"><img th:src="@{/imgs/user.png}" src="../static/imgs/user.png" alt=""></a>
+                <h3>Cerrar sesión</h3>
+                </div>
+            </div>
+        </header>
+        <div class = "top-contenedor">
+            <a href="./catalogo.html"><img th:src="@{/imgs/back.png}" src="../static/imgs/back.png" alt=""></a>
+        </div>
+        <main class="main-detalles">
+            <section class="producto-info-grid">
+                
+                <div class="producto-galeria">
+                    <img th:src="@{/imgs/sonywh5.jpeg}" src="../static/imgs/sonywh5.jpeg" alt="sony" class="img-detalle">
+                    <div class="producto-rating">
+                        ⭐⭐⭐⭐4
+                    </div>
+                </div>
+
+                <div class="producto-datos">
+                    <h1 class="producto-titulo">Audifonos Sony wh-10000xm5</h1>
+                    
+                    <div class="producto-split">
+                        <div class="producto-descripcion">
+                            <p>Estos audífonos ligeros cuentan con un acabado espectacular de “cuero suave y adaptable”. Este material se ajusta a la cabeza para ejercer menos presión en las orejas y bloquear los sonidos externos. El diseño sin ruido con control deslizante, giro fluido y gancho, hace que los WH-1000XM5 sean cómodos.</p>
+                        </div>
+                        
+                        <div class="producto-compra">
+                            <h2 class="precio">$4,953.00</h2>
+                            <p class="disponibilidad">Disponible</p>
+                            
+                            <div class="cantidad-box">
+                                <label for="cantidad">cantidad:</label>
+                                <select id="cantidad">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+
+                            <button class="btn-accion btn-agregar">Agregar al Carrito</button>
+                            <button class="btn-accion btn-comprar">Comprar</button>
+                            
+                            <p class="stock">Stock: 37</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="opiniones-seccion">
+                <h2>Opiniones de Usuarios</h2>
+                
+                <div class="lista-opiniones">
+                    <div class="opinion-card">
+                        <h3>Pedro Esquer</h3>
+                        <p class="opinion-meta">5 estrellas - 16 de Octubre del 2025</p>
+                        <p class="opinion-texto">Producto recomendable!!!!</p>
+                    </div>
+                    
+                    <div class="opinion-card">
+                        <h3>Gael Guerra</h3>
+                        <p class="opinion-meta">4 estrellas - 16 de Octubre del 2025</p>
+                        <p class="opinion-texto">Buen producto para tu vehiculo.</p>
+                    </div>
+                    
+                    <div class="opinion-card">
+                        <h3>Hassan Kabande</h3>
+                        <p class="opinion-meta">4 estrellas - 16 de Octubre del 2025</p>
+                        <p class="opinion-texto">Producto de calidad pero hay otras opciones a mejor precio.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="logo-footer">
+                <img th:src="@{/imgs/svg/logoBlanco.svg}" src="../static/imgs/svg/logoBlanco.svg" alt="">
+                <p>Aplicaciones Web - Unidad 2</p>
+                <br>
+            </div>
+            <div class="contacto">
+                <h3>Contáctanos</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.whatsapp.com/"><img th:src="@{/imgs/whatsappLogo.svg}" src="../static/imgs/whatsappLogo.svg" alt="WhatsApp"></a></li>
+                    <li><a href="https://www.instagram.com/"><img th:src="@{/imgs/instaLogo.svg}" src="../static/imgs/instaLogo.svg" alt="Instagram"></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/"><img th:src="@{/imgs/facebookLogo.svg}" src="../static/imgs/facebookLogo.svg" alt="Facebook"></a></li>
+                    <li><a href="https://mail.google.com/"><img th:src="@{/imgs/gmailLogo.svg}" src="../static/imgs/gmailLogo.svg" alt="Correo"></a></li>
+                </ul>
+            </div>
+            <div class="avisos">
+                <ul class="legal-links">
+                    <li><a href="">Términos y condiciones</a></li>
+                    <li><a href="">Aviso de privacidad</a></li>
+                    <li><a href="">Políticas de cookies</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
