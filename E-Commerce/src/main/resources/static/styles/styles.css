@@ -15,17 +15,26 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .usuario {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-left: auto;
 }
 
 .usuario img {
     width: 50px;
     height: auto;
+}
+
+/* Logo principal del header*/
+.logo img {
+    height: 85px;
+    width: auto;
+    display: block;
 }
 
 .logo a {
@@ -145,6 +154,13 @@ footer {
 
 /* inicio del login*/
 
+/* Logo principal del header */
+.logo img,
+.login-register img {
+    height: 85px;
+    width: auto;
+    display: block;
+}
 .login-register {
     text-align: center;
 }
