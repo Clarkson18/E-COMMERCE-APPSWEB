@@ -5,6 +5,9 @@
     --color-acento: #FFB000;
     --color-fondo: #F2F5F8;
     --color-negro: #000000;
+    --color-estado--Pendiente: #ff0000;
+    --color-estado--Enviado: #fbff00;
+    --color-estado-Entregado: #23b805;
 }
 
 * {
@@ -270,7 +273,6 @@ footer {
     justify-self: center;
 }
 
-/* Tabla de productos */
 .catalogo-wrap {
     display: flex;
     justify-content: center;
@@ -323,6 +325,12 @@ footer {
     transition: all 0.3s ease;
     display: inline-block;
     background-color: white;
+}
+/* Efectos de hover y focus para los botones de Catalogo Productos */
+.contenedor-botones .btn-estilo:hover {
+    background-color: var(--color-acento);
+    color: var(--color-negro);
+    transform: scale(1.05);
 }
 
 .tabla-productos tr:nth-child(even) {
@@ -1296,12 +1304,14 @@ footer .logo-footer {
     cursor: pointer;
     font-size: 12px;
     font-weight: bold;
-    color: white;
+    color: var(--color-negro);
     transition: all 0.3s ease;
 }
 
+/* Estilos para los diferentes estados de los pedidos */
+
 .btnPendiente {
-    background-color: #dc3545;
+    background-color: var(--color-estado--Pendiente);
 }
 
 .btnPendiente:hover {
@@ -1311,17 +1321,17 @@ footer .logo-footer {
 }
 
 .btnEnviado {
-    background-color: #007bff;
+    background-color: var(--color-estado--Enviado);
 }
 
 .btnEnviado:hover {
-    background-color: #0056b3;
+    background-color: #b5ce2a;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
 .btnEntregado {
-    background-color: #28a745;
+    background-color: var(--color-estado-Entregado);
 }
 
 .btnEntregado:hover {
