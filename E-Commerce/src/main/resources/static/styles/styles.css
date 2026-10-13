@@ -1,4 +1,14 @@
+
+/* Variables de color */
+:root {
+    --color-principal: #3B3F4A;
+    --color-acento: #FFB000;
+    --color-fondo: #F2F5F8;
+    --color-negro: #000000;
+}
+
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,9 +16,25 @@
 
 /* inicio index */
 header {
-    background-color: #525252;
-    color: white;
+    background-color: var(--color-acento);
+    color: var(--color-negro);
     padding: 10px 5%;
+}
+
+/* Barra lateral */
+aside {
+    padding: 25px;
+    width: 250px;
+    background-color: var(--color-principal);
+    padding: 20px;
+}
+/* Info letras/texto barra lateral */
+aside a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 30px;
 }
 
 .div {
@@ -47,20 +73,6 @@ header {
     min-height: 100vh;
 }
 
-aside {
-    padding: 25px;
-    width: 250px;
-    background-color: darkgrey;
-    padding: 20px;
-}
-
-aside a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 15px;
-    font-size: 30px;
-}
 
 .main-index {
     flex: 1;
@@ -250,7 +262,7 @@ footer {
 
 /*fin login*/
 
-/*catalogo*/
+/*Inicio catalogo*/
 
 .top-contenedor .perfil-img {
     grid-column: 2;
@@ -258,6 +270,7 @@ footer {
     justify-self: center;
 }
 
+/* Tabla de productos */
 .catalogo-wrap {
     display: flex;
     justify-content: center;
@@ -614,47 +627,6 @@ footer {
     font-size: 2rem;
     font-weight: normal;
     margin-bottom: 40px;
-}
-
-.tabla-historial {
-    width: 100%;
-    max-width: 800px;
-    border-collapse: collapse;
-    background-color: #dadada;
-    margin-bottom: 50px;
-}
-
-.tabla-historial th,
-.tabla-historial td {
-    padding: 15px;
-    text-align: center;
-    border-left: 1px solid #525252;
-    border-right: 1px solid #525252;
-}
-
-.tabla-historial th {
-    border-bottom: 1px solid #525252;
-    font-weight: normal;
-    font-size: 1.2rem;
-}
-
-.tabla-historial th:first-child,
-.tabla-historial td:first-child {
-    border-left: none;
-}
-
-.tabla-historial th:last-child,
-.tabla-historial td:last-child {
-    border-right: none;
-}
-
-.enlace-ver {
-    color: black;
-    text-decoration: none;
-}
-
-.enlace-ver:hover {
-    text-decoration: underline;
 }
 
 .btn-volver-inicio {
