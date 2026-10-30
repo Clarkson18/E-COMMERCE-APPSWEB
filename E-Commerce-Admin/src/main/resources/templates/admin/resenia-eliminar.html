@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Eliminar reseña · Administración</title></head><body><section><h1>Eliminar reseña</h1><div class="ficha"><p>Esta acción eliminará definitivamente el siguiente comentario:</p>
+<blockquote th:text="${resenia.comentario}"></blockquote><form th:action="@{/admin/resenias/{id}/eliminar(id=${resenia.id})}" method="post" class="acciones">
+<button class="peligro">Confirmar eliminación</button><a th:href="@{/admin/resenias}">Cancelar</a></form></div></section></body></html>

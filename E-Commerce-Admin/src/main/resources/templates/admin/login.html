@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Acceso administrativo</title>
+<link rel="stylesheet" th:href="@{/styles/admin.css}"></head><body class="acceso"><main class="login">
+<p class="etiqueta">E-COMMERCE</p><h1>Administración</h1><p>Inicia sesión con tu cuenta administradora.</p>
+<p class="aviso error" role="alert" th:if="${param.error}">Credenciales incorrectas o cuenta sin acceso administrativo.</p>
+<p class="aviso exito" role="status" th:if="${param.logout}">Sesión cerrada correctamente.</p>
+<form th:action="@{/admin/login}" method="post"><label for="email">Correo electrónico</label>
+<input id="email" name="email" type="email" autocomplete="username" required autofocus>
+<label for="password">Contraseña</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+<button type="submit">Iniciar sesión</button></form></main></body></html>

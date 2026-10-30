@@ -7,6 +7,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    @org.springframework.beans.factory.annotation.Value("${app.admin-url:http://localhost:8081}")
+    private String adminUrl;
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         // Redirecciones y mapeos de vistas para Thymeleaf
@@ -44,26 +47,11 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/pagoConfirmado").setViewName("pagoConfirmado");
         registry.addViewController("/pagoConfirmado.html").setViewName("pagoConfirmado");
 
-        // Rutas del panel de administración
-        registry.addViewController("/adminPrincipal").setViewName("adminPrincipal");
-        registry.addViewController("/adminPrincipal.html").setViewName("adminPrincipal");
-
-        registry.addViewController("/adminCatalogo").setViewName("adminCatalogo");
-        registry.addViewController("/adminCatalogo.html").setViewName("adminCatalogo");
-
-        registry.addViewController("/adminCrearProducto").setViewName("adminCrearProducto");
-        registry.addViewController("/adminCrearProducto.html").setViewName("adminCrearProducto");
-
-        registry.addViewController("/adminEditarProducto").setViewName("adminEditarProducto");
-        registry.addViewController("/adminEditarProducto.html").setViewName("adminEditarProducto");
-
-        registry.addViewController("/adminGestionPedidos").setViewName("adminGestionPedidos");
-        registry.addViewController("/adminGestionPedidos.html").setViewName("adminGestionPedidos");
-
-        registry.addViewController("/adminGestionResenas").setViewName("adminGestionResenas");
-        registry.addViewController("/adminGestionResenas.html").setViewName("adminGestionResenas");
-
-        registry.addViewController("/adminUsuarios").setViewName("adminUsuarios");
-        registry.addViewController("/adminUsuarios.html").setViewName("adminUsuarios");
+        // El panel se ejecuta como aplicación independiente.
+        for (String ruta : new String[]{"adminPrincipal", "adminCatalogo", "adminCrearProducto",
+                "adminEditarProducto", "adminGestionPedidos", "adminGestionResenas", "adminUsuarios"}) {
+            registry.addRedirectViewController("/" + ruta, adminUrl + "/admin");
+            registry.addRedirectViewController("/" + ruta + ".html", adminUrl + "/admin");
+        }
     }
 }

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Productos · Administración</title></head><body><section><h1>Productos</h1><div class="barra"><form th:action="@{/admin/productos}" method="get" class="busqueda">
+<label for="buscar">Buscar por nombre</label><input id="buscar" name="buscar" th:value="${buscar}" maxlength="150"><button>Buscar</button></form>
+<a class="boton" th:href="@{/admin/productos/nuevo}">Crear producto</a></div>
+<div class="tabla"><table><thead><tr><th>Producto</th><th>Precio</th><th>Stock</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>
+<tr th:each="p : ${productos}"><td th:text="${p.nombre}"></td><td th:text="${'$' + #numbers.formatDecimal(p.precio, 1, 2)}"></td>
+<td th:text="${p.stock}"></td><td th:text="${p.activo ? 'Activo' : 'Inactivo'}"></td><td class="acciones">
+<a th:href="@{/admin/productos/{id}/editar(id=${p.id})}">Editar</a>
+<form th:action="@{/admin/productos/{id}/estado(id=${p.id})}" method="post"><button class="secundario" th:text="${p.activo ? 'Desactivar' : 'Activar'}"></button></form></td></tr>
+<tr th:if="${#lists.isEmpty(productos)}"><td colspan="5">No hay productos para mostrar.</td></tr></tbody></table></div>
+<p class="ayuda">Desactivar un producto conserva las referencias de pedidos anteriores.</p></section></body></html>

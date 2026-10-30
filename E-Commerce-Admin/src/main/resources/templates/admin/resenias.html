@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Reseñas · Administración</title></head><body><section><h1>Reseñas</h1><div class="tabla"><table><thead><tr><th>Producto</th><th>Cliente</th><th>Calificación</th><th>Comentario</th><th>Acciones</th></tr></thead><tbody>
+<tr th:each="r : ${resenias}"><td th:text="${r.producto.nombre}"></td><td th:text="${r.usuario.nombre}"></td>
+<td th:text="${r.calificacion + '/5'}"></td><td class="comentario" th:text="${r.comentario}"></td>
+<td><a th:href="@{/admin/resenias/{id}/eliminar(id=${r.id})}">Eliminar</a></td></tr>
+<tr th:if="${#lists.isEmpty(resenias)}"><td colspan="5">Todavía no hay reseñas.</td></tr></tbody></table></div></section></body></html>

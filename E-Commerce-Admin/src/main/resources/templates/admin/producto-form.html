@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Datos del producto · Administración</title></head><body><section><h1>Datos del producto</h1><form class="formulario" th:action="${id == null ? '/admin/productos' : '/admin/productos/' + id + '/editar'}" th:object="${producto}" method="post"><label for="nombre">Nombre</label><input id="nombre" type="text" th:field="*{nombre}" maxlength="150" required><p class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+<label for="precio">Precio</label><input id="precio" type="number" th:field="*{precio}" min="0" step="0.01" required><p class="error" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></p>
+<label for="stock">Stock</label><input id="stock" type="number" th:field="*{stock}" min="0" step="1" required><p class="error" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></p>
+<label for="imagenUrl">URL de imagen (opcional)</label><input id="imagenUrl" type="text" th:field="*{imagenUrl}" maxlength="500" placeholder="https://… o /imgs/…"><p class="error" th:if="${#fields.hasErrors('imagenUrl')}" th:errors="*{imagenUrl}"></p>
+
+<label for="descripcion">Descripción</label><textarea id="descripcion" th:field="*{descripcion}" maxlength="2000" rows="5"></textarea>
+<p class="error" th:errors="*{descripcion}"></p><label class="check"><input type="checkbox" th:field="*{activo}"> Producto activo</label>
+<div class="acciones"><button type="submit">Guardar producto</button><a th:href="@{/admin/productos}">Cancelar</a></div></form></section></body></html>

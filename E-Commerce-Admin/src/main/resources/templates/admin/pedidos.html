@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Pedidos · Administración</title></head><body><section><h1>Pedidos</h1><div class="tabla"><table><thead><tr><th>Pedido</th><th>Cliente</th><th>Fecha</th><th>Total</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>
+<tr th:each="p : ${pedidos}"><td th:text="${p.id}"></td><td th:text="${p.usuario.nombre}"></td>
+<td th:text="${#temporals.format(p.fecha, 'dd/MM/yyyy HH:mm')}"></td><td th:text="${'$' + #numbers.formatDecimal(p.total, 1, 2)}"></td>
+<td th:text="${p.estado}"></td><td><a th:href="@{/admin/pedidos/{id}(id=${p.id})}">Ver pedido</a></td></tr>
+<tr th:if="${#lists.isEmpty(pedidos)}"><td colspan="6">Todavía no hay pedidos.</td></tr></tbody></table></div></section></body></html>

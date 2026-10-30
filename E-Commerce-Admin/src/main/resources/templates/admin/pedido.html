@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Detalle del pedido · Administración</title></head><body><section><h1>Detalle del pedido</h1><div class="ficha"><p>Pedido <strong th:text="${pedido.id}"></strong></p>
+<p>Cliente: <span th:text="${pedido.usuario.nombre}"></span> · <span th:text="${pedido.usuario.email}"></span></p>
+<p>Dirección de envío: <span th:text="${pedido.direccionEnvio}"></span></p><p>Estado: <strong th:text="${pedido.estado}"></strong></p></div>
+<div class="tabla"><table><thead><tr><th>Producto</th><th>Cantidad</th><th>Precio de compra</th><th>Subtotal</th></tr></thead><tbody>
+<tr th:each="d : ${pedido.detalles}"><td th:text="${d.producto.nombre}"></td><td th:text="${d.cantidad}"></td>
+<td th:text="${'$' + #numbers.formatDecimal(d.precioUnitario, 1, 2)}"></td><td th:text="${'$' + #numbers.formatDecimal(d.subtotal, 1, 2)}"></td></tr>
+<tr th:if="${#lists.isEmpty(pedido.detalles)}"><td colspan="4">Este pedido no contiene detalles.</td></tr></tbody></table></div>
+<p class="total">Total: <strong th:text="${'$' + #numbers.formatDecimal(pedido.total, 1, 2)}"></strong></p>
+<form class="formulario" th:action="@{/admin/pedidos/{id}/estado(id=${pedido.id})}" method="post">
+<label for="estado">Actualizar estado</label><select id="estado" name="estado"><option th:each="e : ${estados}" th:value="${e}" th:text="${e}" th:selected="${e == pedido.estado}"></option></select>
+<p class="ayuda">Secuencia: PENDIENTE → ENVIADO → ENTREGADO.</p><button>Guardar estado</button></form>
+<p><a th:href="@{/admin/pedidos}">Volver a pedidos</a></p></section></body></html>

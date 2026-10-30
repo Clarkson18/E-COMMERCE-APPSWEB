@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(titulo, contenido)">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title th:replace="${titulo}">Administración</title><link rel="stylesheet" th:href="@{/styles/admin.css}"></head>
+<body>
+<header class="cabecera"><a th:href="@{/admin}" class="marca">E-Commerce <span>Administración</span></a>
+<form th:action="@{/admin/logout}" method="post"><button class="secundario" type="submit">Cerrar sesión</button></form></header>
+<div class="estructura"><aside><nav aria-label="Administración">
+<a th:href="@{/admin}">Inicio</a><a th:href="@{/admin/productos}">Productos</a>
+<a th:href="@{/admin/pedidos}">Pedidos</a><a th:href="@{/admin/usuarios}">Usuarios</a>
+<a th:href="@{/admin/resenias}">Reseñas</a></nav><p>Gestión de la tienda</p></aside>
+<main><p class="aviso exito" role="status" th:if="${mensaje}" th:text="${mensaje}"></p>
+<p class="aviso error" role="alert" th:if="${error}" th:text="${error}"></p>
+<th:block th:replace="${contenido}"></th:block></main></div></body></html>

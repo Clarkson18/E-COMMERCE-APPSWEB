@@ -1,0 +1,14 @@
+# Copiar como application-local.properties junto al pom.xml de E-Commerce-Admin.
+# Cada integrante debe usar sus propias credenciales; no compartir este archivo.
+# Conexión predeterminada para el servidor local (Linux o Windows).
+spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce?serverTimezone=UTC&createDatabaseIfNotExist=true
+spring.datasource.username=TU_USUARIO_MYSQL
+spring.datasource.password=TU_CONTRASENA_MYSQL
+
+# Administrador inicial: habilitar solo para crear una cuenta nueva.
+# Sustituir los valores antes de descomentar las siguientes líneas.
+# La clave debe tener al menos 12 caracteres y como máximo 72 bytes UTF-8.
+# Tras el primer arranque exitoso, volver a comentar o eliminar estas tres líneas.
+# app.admin-inicial.habilitado=true
+# app.admin-inicial.email=TU_CORREO
+# app.admin-inicial.password=TU_CLAVE_ADMINISTRATIVA

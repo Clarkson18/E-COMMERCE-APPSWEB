@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Panel administrativo · Administración</title></head><body><section><h1>Panel administrativo</h1><p class="intro">Administra el catálogo, consulta pedidos y modera la actividad de tu tienda.</p>
+<div class="tarjetas"><a th:href="@{/admin/productos}"><h2>Productos</h2><p>Precios, existencias y disponibilidad.</p></a>
+<a th:href="@{/admin/pedidos}"><h2>Pedidos</h2><p>Consulta detalles y actualiza entregas.</p></a>
+<a th:href="@{/admin/usuarios}"><h2>Usuarios</h2><p>Consulta cuentas y administra su estado.</p></a>
+<a th:href="@{/admin/resenias}"><h2>Reseñas</h2><p>Revisa comentarios de los clientes.</p></a></div></section></body></html>

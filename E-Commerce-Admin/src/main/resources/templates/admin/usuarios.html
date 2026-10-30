@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Usuarios · Administración</title></head><body><section><h1>Usuarios</h1><div class="tabla"><table><thead><tr><th>Nombre</th><th>Email</th><th>Rol</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>
+<tr th:each="u : ${usuarios}"><td th:text="${u.nombre}"></td><td th:text="${u.email}"></td><td th:text="${u.rol}"></td>
+<td th:text="${u.activo ? 'Activo' : 'Inactivo'}"></td><td><form th:if="${u.rol.name() == 'CLIENTE'}" th:action="@{/admin/usuarios/{id}/estado(id=${u.id})}" method="post">
+<button class="secundario" th:text="${u.activo ? 'Desactivar' : 'Activar'}"></button></form><span th:if="${u.rol.name() == 'ADMIN'}">Cuenta protegida</span></td></tr>
+<tr th:if="${#lists.isEmpty(usuarios)}"><td colspan="5">No hay usuarios.</td></tr></tbody></table></div>
+<p class="ayuda">Las cuentas se desactivan para conservar su historial de pedidos y reseñas.</p></section></body></html>
