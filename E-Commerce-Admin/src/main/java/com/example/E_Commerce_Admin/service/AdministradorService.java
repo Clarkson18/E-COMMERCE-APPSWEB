@@ -10,7 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class AdministradorService implements UserDetailsService {
     private final UsuarioRepository usuarios;
-    public AdministradorService(UsuarioRepository usuarios) { this.usuarios = usuarios; }
+
+    public AdministradorService(UsuarioRepository usuarios) {
+        this.usuarios = usuarios;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String email) {

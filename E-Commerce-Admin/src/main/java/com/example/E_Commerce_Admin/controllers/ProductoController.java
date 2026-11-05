@@ -14,7 +14,9 @@ import java.math.BigDecimal;
 public class ProductoController {
     private final ProductoService productos;
 
-    public ProductoController(ProductoService productos) { this.productos = productos; }
+    public ProductoController(ProductoService productos) {
+        this.productos = productos;
+    }
 
     @GetMapping
     public String listar(@RequestParam(defaultValue = "") String buscar, Model model) {
@@ -45,7 +47,8 @@ public class ProductoController {
             @RequestParam(defaultValue = "false") boolean activo,
             Model model, RedirectAttributes flash) {
         Producto producto = datosProducto(nombre, descripcion, precio, stock, imagenUrl, activo);
-        if (mostrarErrores(producto, model)) return "admin/producto-form";
+        if (mostrarErrores(producto, model))
+            return "admin/producto-form";
         productos.guardar(null, producto);
         flash.addFlashAttribute("mensaje", "Producto creado.");
         return "redirect:/admin/productos";
@@ -62,7 +65,8 @@ public class ProductoController {
             Model model, RedirectAttributes flash) {
         Producto producto = datosProducto(nombre, descripcion, precio, stock, imagenUrl, activo);
         model.addAttribute("id", id);
-        if (mostrarErrores(producto, model)) return "admin/producto-form";
+        if (mostrarErrores(producto, model))
+            return "admin/producto-form";
         productos.guardar(id, producto);
         flash.addFlashAttribute("mensaje", "Producto actualizado.");
         return "redirect:/admin/productos";
@@ -81,11 +85,11 @@ public class ProductoController {
         return producto;
     }
 
-    // El servicio valida; el controlador solamente presenta los errores en Thymeleaf.
+    // El servicio valida; el controlador solamente presenta los errores en
+    // Thymeleaf.
     private boolean mostrarErrores(Producto producto, Model model) {
         var errores = new BeanPropertyBindingResult(producto, "producto");
-        productos.validar(producto).forEach((campo, mensaje) ->
-                errores.rejectValue(campo, "invalido", mensaje));
+        productos.validar(producto).forEach((campo, mensaje) -> errores.rejectValue(campo, "invalido", mensaje));
         model.addAllAttributes(errores.getModel());
         return errores.hasErrors();
     }

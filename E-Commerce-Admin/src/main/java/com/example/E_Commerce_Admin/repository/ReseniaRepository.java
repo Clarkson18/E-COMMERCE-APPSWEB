@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface ReseniaRepository extends JpaRepository<Resenia, Long> {
-    @EntityGraph(attributePaths = {"usuario", "producto"})
+    @EntityGraph(attributePaths = { "usuario", "producto" })
     List<Resenia> findAllByOrderByFechaDesc();
 }

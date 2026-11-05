@@ -30,8 +30,8 @@ public class ProductoService {
 
     public Map<String, String> validar(Producto producto) {
         Map<String, String> errores = new LinkedHashMap<>();
-        validator.validate(producto).forEach(error ->
-                errores.put(error.getPropertyPath().toString(), error.getMessage()));
+        validator.validate(producto)
+                .forEach(error -> errores.put(error.getPropertyPath().toString(), error.getMessage()));
         if (producto.getNombre() != null && producto.getNombre().length() > 150)
             errores.put("nombre", "El nombre admite hasta 150 caracteres.");
         if (producto.getDescripcion() != null && producto.getDescripcion().length() > 2000)
@@ -44,7 +44,8 @@ public class ProductoService {
 
     @Transactional
     public void guardar(Long id, Producto datos) {
-        if (!validar(datos).isEmpty()) throw new IllegalArgumentException("Revisa los datos del producto.");
+        if (!validar(datos).isEmpty())
+            throw new IllegalArgumentException("Revisa los datos del producto.");
         var producto = id == null ? new Producto() : obtener(id);
         producto.setNombre(datos.getNombre().trim());
         producto.setDescripcion(datos.getDescripcion());

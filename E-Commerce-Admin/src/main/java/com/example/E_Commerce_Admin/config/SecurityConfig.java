@@ -13,7 +13,9 @@ import jakarta.servlet.DispatcherType;
 @Configuration
 public class SecurityConfig {
     @Bean
-    PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http, AdministradorService administradores) throws Exception {
@@ -28,12 +30,12 @@ public class SecurityConfig {
                     return new AuthorizationDecision(autorizado);
                 })
                 .anyRequest().denyAll())
-            .formLogin(login -> login.loginPage("/admin/login")
-                .loginProcessingUrl("/admin/login").usernameParameter("email")
-                .defaultSuccessUrl("/admin", true).failureUrl("/admin/login?error").permitAll())
-            .logout(logout -> logout.logoutUrl("/admin/logout")
-                .invalidateHttpSession(true).clearAuthentication(true)
-                .deleteCookies("ADMINSESSION").logoutSuccessUrl("/admin/login?logout"));
+                .formLogin(login -> login.loginPage("/admin/login")
+                        .loginProcessingUrl("/admin/login").usernameParameter("email")
+                        .defaultSuccessUrl("/admin", true).failureUrl("/admin/login?error").permitAll())
+                .logout(logout -> logout.logoutUrl("/admin/logout")
+                        .invalidateHttpSession(true).clearAuthentication(true)
+                        .deleteCookies("ADMINSESSION").logoutSuccessUrl("/admin/login?logout"));
         // CSRF queda habilitado. Thymeleaf incluye el token en formularios POST.
         return http.build();
     }

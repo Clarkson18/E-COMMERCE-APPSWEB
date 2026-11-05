@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,32 +9,33 @@
 </head>
 
 <body class="acceso">
-<main class="login">
+    <main class="login">
 
-    <div class="login-logo">
-        <img th:src="@{/imgs/Logo_completo.png}" alt="Logo de la marca">
-    </div>
+        <div class="login-logo">
+            <img th:src="@{/imgs/Logo_completo.png}" alt="Logo de la marca">
+        </div>
 
-    <h1>Administración</h1>
-    <p>Inicia sesión con tu cuenta administradora.</p>
+        <h1>Administración</h1>
+        <p>Inicia sesión con tu cuenta administradora.</p>
 
-    <p class="aviso error" role="alert" th:if="${param.error}">
-        Credenciales incorrectas o cuenta sin acceso administrativo.
-    </p>
-    <p class="aviso exito" role="status" th:if="${param.logout}">
-        Sesión cerrada correctamente.
-    </p>
+        <p class="aviso error" role="alert" th:if="${param.error}">
+            Credenciales incorrectas o cuenta sin acceso administrativo.
+        </p>
+        <p class="aviso exito" role="status" th:if="${param.logout}">
+            Sesión cerrada correctamente.
+        </p>
 
-    <form th:action="@{/admin/login}" method="post">
-        <label for="email">Correo electrónico</label>
-        <input id="email" name="email" type="email" autocomplete="username" required autofocus>
+        <form th:action="@{/admin/login}" method="post">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="username" required autofocus>
 
-        <label for="password">Contraseña</label>
-        <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <label for="password">Contraseña</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
 
-        <button type="submit">Iniciar sesión</button>
-    </form>
+            <button type="submit">Iniciar sesión</button>
+        </form>
 
-</main>
+    </main>
 </body>
+
 </html>

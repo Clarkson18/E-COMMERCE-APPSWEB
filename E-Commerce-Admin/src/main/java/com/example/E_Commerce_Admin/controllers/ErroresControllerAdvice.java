@@ -9,5 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class ErroresControllerAdvice {
     @ExceptionHandler(RecursoNoEncontradoException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String noEncontrado() { return "error/404"; }
+    public String noEncontrado() {
+        return "error/404";
+    }
 }

@@ -10,15 +10,27 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/admin/resenias")
 public class ReseniaController {
     private final ReseniaService resenias;
-    public ReseniaController(ReseniaService resenias) { this.resenias = resenias; }
-    @GetMapping public String listar(Model model) {
-        model.addAttribute("resenias", resenias.listar()); return "admin/resenias";
+
+    public ReseniaController(ReseniaService resenias) {
+        this.resenias = resenias;
     }
-    @GetMapping("/{id}/eliminar") public String confirmar(@PathVariable Long id, Model model) {
-        model.addAttribute("resenia", resenias.obtener(id)); return "admin/resenia-eliminar";
+
+    @GetMapping
+    public String listar(Model model) {
+        model.addAttribute("resenias", resenias.listar());
+        return "admin/resenias";
     }
-    @PostMapping("/{id}/eliminar") public String eliminar(@PathVariable Long id, RedirectAttributes flash) {
-        resenias.eliminar(id); flash.addFlashAttribute("mensaje", "Reseña eliminada.");
+
+    @GetMapping("/{id}/eliminar")
+    public String confirmar(@PathVariable Long id, Model model) {
+        model.addAttribute("resenia", resenias.obtener(id));
+        return "admin/resenia-eliminar";
+    }
+
+    @PostMapping("/{id}/eliminar")
+    public String eliminar(@PathVariable Long id, RedirectAttributes flash) {
+        resenias.eliminar(id);
+        flash.addFlashAttribute("mensaje", "Reseña eliminada.");
         return "redirect:/admin/resenias";
     }
 }

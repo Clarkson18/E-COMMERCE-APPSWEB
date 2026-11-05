@@ -9,8 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
-    @EntityGraph(attributePaths = {"usuario", "detalles", "detalles.producto"})
+    @EntityGraph(attributePaths = { "usuario", "detalles", "detalles.producto" })
     List<Pedido> findAllByOrderByFechaDesc();
-    @EntityGraph(attributePaths = {"usuario", "detalles", "detalles.producto"})
+
+    @EntityGraph(attributePaths = { "usuario", "detalles", "detalles.producto" })
     Optional<Pedido> findWithDetallesById(Long id);
 }

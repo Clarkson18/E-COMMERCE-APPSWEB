@@ -1,13 +1,12 @@
-
 :root {
-   
+
     --color-principal: #3B3F4A;
     --color-acento: #FFB000;
     --color-fondo: #F2F5F8;
     --color-negro: #000000;
     --color-blanco: #ffffff;
 
-   
+
     --color-acento-hover: #e09c00;
     --color-acento-texto: #9a6700;
     --color-principal-hover: #2b2e36;
@@ -139,7 +138,7 @@ button.secundario {
     padding: 24px;
 }
 
-.formulario > label:first-child {
+.formulario>label:first-child {
     margin-top: 0;
 }
 
@@ -190,7 +189,7 @@ button.secundario {
 .estructura {
     display: grid;
     grid-template-columns: 215px 1fr;
-    min-height: calc(100vh - 82px); 
+    min-height: calc(100vh - 82px);
 }
 
 aside {

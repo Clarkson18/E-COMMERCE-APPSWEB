@@ -10,9 +10,21 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class ReseniaService {
     private final ReseniaRepository resenias;
-    public ReseniaService(ReseniaRepository resenias) { this.resenias = resenias; }
-    public List<Resenia> listar() { return resenias.findAllByOrderByFechaDesc(); }
-    public Resenia obtener(Long id) { return resenias.findById(id).orElseThrow(RecursoNoEncontradoException::new); }
+
+    public ReseniaService(ReseniaRepository resenias) {
+        this.resenias = resenias;
+    }
+
+    public List<Resenia> listar() {
+        return resenias.findAllByOrderByFechaDesc();
+    }
+
+    public Resenia obtener(Long id) {
+        return resenias.findById(id).orElseThrow(RecursoNoEncontradoException::new);
+    }
+
     @Transactional
-    public void eliminar(Long id) { resenias.delete(obtener(id)); }
+    public void eliminar(Long id) {
+        resenias.delete(obtener(id));
+    }
 }
