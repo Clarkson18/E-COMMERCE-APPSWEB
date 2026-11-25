@@ -2,6 +2,7 @@ package com.example.E_Commerce.config;
 
 import com.example.E_Commerce.dto.ErrorApiResponse;
 import com.example.E_Commerce.security.JwtAuthenticationFilter;
+import com.example.E_Commerce.security.UsuarioAutenticado;
 import com.example.E_Commerce.security.UsuarioSeguridadService;
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.http.HttpServletResponse;
@@ -56,10 +57,12 @@ public class SecurityConfig {
                             if (actual == null || actual instanceof AnonymousAuthenticationToken || !actual.isAuthenticated()) {
                                 return new AuthorizationDecision(false);
                             }
-                            boolean autorizado = actual.getAuthorities().stream()
-                                    .anyMatch(ga -> ga.getAuthority().equals("ROLE_CLIENTE"))
-                                    && usuariosSeguridad.tieneAccesoCliente(actual.getName());
-                            return new AuthorizationDecision(autorizado);
+                            boolean tieneRolCliente = actual.getAuthorities().stream()
+                                    .anyMatch(ga -> ga.getAuthority().equals("ROLE_CLIENTE"));
+                            boolean cuentaActiva = (actual.getPrincipal() instanceof UsuarioAutenticado ua)
+                                    ? usuariosSeguridad.tieneAccesoClientePorId(ua.id())
+                                    : usuariosSeguridad.tieneAccesoCliente(actual.getName());
+                            return new AuthorizationDecision(tieneRolCliente && cuentaActiva);
                         }))
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint((request, response, authException) -> {

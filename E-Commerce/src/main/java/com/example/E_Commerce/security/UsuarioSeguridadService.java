@@ -46,4 +46,13 @@ public class UsuarioSeguridadService implements UserDetailsService {
                 .map(u -> u.isActivo() && u.getRol() == RolUsuario.CLIENTE)
                 .orElse(false);
     }
+
+    public boolean tieneAccesoClientePorId(Long id) {
+        if (id == null) {
+            return false;
+        }
+        return usuarios.findById(id)
+                .map(u -> u.isActivo() && u.getRol() == RolUsuario.CLIENTE)
+                .orElse(false);
+    }
 }
