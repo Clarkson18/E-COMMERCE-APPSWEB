@@ -10,3 +10,8 @@
 # Logs & temp
 *.log
 tmp/
+
+# Credenciales locales y variables de entorno
+**/application-local.properties
+.env
+*.env
